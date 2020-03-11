@@ -32,8 +32,9 @@ public class ReviewPage {
 	
 	public void setRating(int ratingNum) {
 		actions = new Actions(driver);
+		actions.moveByOffset(reviewBar.getLocation().getX(), reviewBar.getLocation().getY()).pause(100);
 		for(int i=1;i<=ratingNum;i++) 
-			actions.moveToElement(reviewBar, i*10,0); 
+			actions.moveByOffset(i*10, 0).pause(50);
 		actions.click().perform();
 	}
 	
@@ -63,7 +64,7 @@ public class ReviewPage {
 				WebElement ele = hotelRating.findElement(By.cssSelector("div.dq_allTravelers:nth-of-type("+i+")"));
 				actions = new Actions(driver);
 				for(int j=1;j<=5;j++) {
-					actions.moveToElement(ele.findElement(By.cssSelector("span[id$=_bubbles]")),j*10,0);
+					actions.moveToElement(ele.findElement(By.cssSelector("span[id$=_bubbles]")),j*10,0).pause(50);
 				}
 				actions.click().perform();
 			}
