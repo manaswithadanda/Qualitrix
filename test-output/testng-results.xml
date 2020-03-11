@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="62084" started-at="2020-03-11T05:25:44Z" finished-at="2020-03-11T05:26:47Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="62084" started-at="2020-03-11T05:25:44Z" finished-at="2020-03-11T05:26:47Z">
+      <class name="tests.AssignmentTwo">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.AssignmentTwo@9629756]" name="setUp" is-config="true" duration-ms="4317" started-at="2020-03-11T10:55:44Z" finished-at="2020-03-11T10:55:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="assignmentTwo()[pri:0, instance:tests.AssignmentTwo@9629756]" name="assignmentTwo" duration-ms="37667" started-at="2020-03-11T10:55:49Z" finished-at="2020-03-11T10:56:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignmentTwo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.AssignmentTwo@9629756]" name="tearDown" is-config="true" duration-ms="937" started-at="2020-03-11T10:56:26Z" finished-at="2020-03-11T10:56:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.AssignmentTwo -->
+      <class name="tests.AssignmentOne">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.AssignmentOne@23ceabc1]" name="setUp" is-config="true" duration-ms="3465" started-at="2020-03-11T10:56:27Z" finished-at="2020-03-11T10:56:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Test1()[pri:0, instance:tests.AssignmentOne@23ceabc1]" name="Test1" duration-ms="14865" started-at="2020-03-11T10:56:31Z" finished-at="2020-03-11T10:56:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.AssignmentOne@23ceabc1]" name="tearDown" is-config="true" duration-ms="804" started-at="2020-03-11T10:56:46Z" finished-at="2020-03-11T10:56:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.AssignmentOne -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
