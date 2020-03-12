@@ -1,8 +1,6 @@
 package tripadvisor.pages;
 
 import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +16,7 @@ public class ReviewPage {
 	@FindBy(id="ReviewTitle") WebElement reviewTitle;
 	@FindBy(id="ReviewText") WebElement reviewText;
 	@FindBy(css="#trip_type_table .jfy_cloud") List<WebElement> tripType;
-	@FindBy(css=".ratingBubbleTable") WebElement hotelRating;
+	@FindBy(css=".dq_allTravelers:not(.suppress) span[id$=bubbles]") List<WebElement> hotelRating;
 	@FindBy(id="noFraud") WebElement noFraudCheckBox;
 	@FindBy(id="SUBMIT") WebElement submitBtn;
 	@FindBy(id="trip_date_month_year") WebElement travelDate;
@@ -56,15 +54,12 @@ public class ReviewPage {
 	}
 	
 	public void setHotelRating() {
-		js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(false);", hotelRating);
-		
-		if(hotelRating.isDisplayed()) {
-			for(int i=1;i<4;i++) {
-				WebElement ele = hotelRating.findElement(By.cssSelector("div.dq_allTravelers:nth-of-type("+i+")"));
+		if(hotelRating.size()>0) {
+			for(WebElement element : hotelRating) {
 				actions = new Actions(driver);
-				for(int j=1;j<=5;j++) {
-					actions.moveToElement(ele.findElement(By.cssSelector("span[id$=_bubbles]")),j*10,0).pause(50);
+				actions.moveToElement(element,0,0).pause(50);
+				for(int i=1;i<4;i++) {
+					actions.moveByOffset(i*10, 0).pause(50);
 				}
 				actions.click().perform();
 			}

@@ -13,6 +13,7 @@ public class AssignmentOne extends TestBase {
 	public void assignmentOne() {
 		
 		String productName="Apple iPhone XR (64GB) - Yellow";
+//		String productName="NIVEA Soap, Creme Soft, 125g";
 		
 		//To get price of product from Amazon website 
 		AmazonHomePage azHomePage = new AmazonHomePage(driver);
