@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 public class ReviewPage {
 	
 	WebDriver driver;
-	@FindBy(id="bubble_rating") WebElement reviewBar;
+	@FindBy(id="bubble_rating") WebElement overallRating;
 	@FindBy(id="ReviewTitle") WebElement reviewTitle;
 	@FindBy(id="ReviewText") WebElement reviewText;
 	@FindBy(css="#trip_type_table .jfy_cloud") List<WebElement> tripType;
@@ -28,12 +28,8 @@ public class ReviewPage {
 		PageFactory.initElements(driver,this);
 	}
 	
-	public void setRating(int ratingNum) {
-		actions = new Actions(driver);
-		actions.moveToElement(reviewBar,-40,0).pause(100);
-		for(int i=1;i<ratingNum;i++) 
-			actions.moveByOffset(i*10, 0).pause(50);
-		actions.click().perform();
+	public void setOverallRating(int ratingNum) {
+		setRating(overallRating, ratingNum);
 	}
 	
 	public void fillReviewForm(String rvTitle, String rvText) {
@@ -45,7 +41,7 @@ public class ReviewPage {
 		Select select = new Select(travelDate);
 		select.selectByIndex(1);
 		
-		setHotelRating();
+		setHotelRating(5);
 	}
 	
 	public void submitReview() {
@@ -53,16 +49,17 @@ public class ReviewPage {
 		submitBtn.click();
 	}
 	
-	public void setHotelRating() {
-		if(hotelRating.size()>0) {
-			for(WebElement element : hotelRating) {
-				actions = new Actions(driver);
-				actions.moveToElement(element,-40,0).pause(50);
-				for(int i=1;i<5;i++) {
-					actions.moveByOffset(i*10, 0).pause(50);
-				}
-				actions.click().perform();
-			}
-		}
+	public void setHotelRating(int rating) {
+		if(hotelRating.size()>0) 
+			for(WebElement element : hotelRating) 
+				setRating(element, rating);
+	}
+	
+	private void setRating(WebElement element, int rating) {
+		actions = new Actions(driver);
+		actions.moveToElement(element,-40,0).pause(50);
+		for(int i=1; i<rating; i++) 
+			actions.moveByOffset(i*10, 0).pause(50);
+		actions.click().perform();
 	}
 }
