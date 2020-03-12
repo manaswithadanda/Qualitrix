@@ -30,8 +30,8 @@ public class ReviewPage {
 	
 	public void setRating(int ratingNum) {
 		actions = new Actions(driver);
-		actions.moveByOffset(reviewBar.getLocation().getX(), reviewBar.getLocation().getY()).pause(100);
-		for(int i=1;i<=ratingNum;i++) 
+		actions.moveToElement(reviewBar,-40,0).pause(100);
+		for(int i=1;i<ratingNum;i++) 
 			actions.moveByOffset(i*10, 0).pause(50);
 		actions.click().perform();
 	}
@@ -57,8 +57,8 @@ public class ReviewPage {
 		if(hotelRating.size()>0) {
 			for(WebElement element : hotelRating) {
 				actions = new Actions(driver);
-				actions.moveToElement(element,0,0).pause(50);
-				for(int i=1;i<4;i++) {
+				actions.moveToElement(element,-40,0).pause(50);
+				for(int i=1;i<5;i++) {
 					actions.moveByOffset(i*10, 0).pause(50);
 				}
 				actions.click().perform();
